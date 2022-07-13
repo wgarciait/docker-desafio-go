@@ -11,8 +11,10 @@ RUN go build -o /server
 
 CMD [ "/server"]
 
-FROM alpine:3.16
+FROM scratch
 
 COPY --from=build /server /server
+
+EXPOSE 8080
 
 ENTRYPOINT [ "/server" ]
